@@ -1,14 +1,12 @@
 import React from "react";
 
-const SongDetail = ({song}) => {
-  if(!song) return null;
-  return (
+const SongDetail = ({children}) => (
+
     <div>
-      <h2>{song.title}</h2>
-      <h3>{song.artist}</h3>
+      <h2>{children}</h2>
     </div>
   )
-}
+
 
 
 

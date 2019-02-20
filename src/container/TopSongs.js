@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from "react";
+import SongList from '../components/SongList';
 
 class TopSongs extends Component {
    constructor(props) {
@@ -6,8 +7,6 @@ class TopSongs extends Component {
      this.state = {
        songs: []
      };
-
-this.handleSongList = this.handleSongList.bind(this);
    }
 
    componentDidMount () {
@@ -20,9 +19,8 @@ this.handleSongList = this.handleSongList.bind(this);
       const jsonString = request.responseText;
       const data = JSON.parse(jsonString);
       this.setState(
-        {songs: data
-        }
-      )
+        {songs: data.feed.entry})
+
     });
 
     request.send();
@@ -33,24 +31,11 @@ this.handleSongList = this.handleSongList.bind(this);
      return (
        <Fragment>
          <h2>UK Top Songs</h2>
-         <songList
-           songs= {this.state.songs}
-           handleSongList = {this.handleSongList}
-         />
+         <SongList songs= {this.state.songs}/>
         </Fragment>
      );
    }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

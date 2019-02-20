@@ -1,23 +1,25 @@
 import React from "react";
+import SongDetail from '../components/SongDetail';
 
-const SongList = (props) =>
-    const options = props.songs.map((song,index) => {
-    return  <option value={song} key={index}>{song}</option>
+const SongList = ({songs}) => {
+    const songNodes = songs.map(song => {
+    return (
+    <SongDetail key={song.id.attributes["im:id"]}>
+    {song["im:name"].label} </SongDetail>
       );
-    };
+    });
 
   return(
     <div className='song-list'>
-      <ul>
-        <TopSongDetail songList={song.im} key={song.id.attributes["im:id"]}>
-        {song["im:name"].label} </TopSongDetail>
-      </ul>
+      {songNodes}
     </div>
   )
 
+}
 
 
 
 
 
-export default MovieList;
+
+export default SongList;
